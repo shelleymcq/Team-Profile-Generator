@@ -34,13 +34,29 @@ const getInput = () => {
                 type: 'input',
                 message: 'Enter github username.',
                 name: 'username',
+                when: (answers) => {
+                    if (answers.position === 'engineer' || answers.position === 'manager') {
+                        return true;
+                    }
+                }
             },
             {
                 type: 'input',
                 message: 'Enter school.',
                 name: 'school',
+                when: (answers) => {
+                    if (answers.position === 'intern') {
+                        return true;
+                    }
+                }
             },
         ]
-        ]
     )
+    .then(answers => {
+        console.log(answers);
+    })
 }
+
+getInput()
+
+
