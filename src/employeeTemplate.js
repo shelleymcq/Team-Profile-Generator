@@ -1,8 +1,10 @@
-class MakeEmployee(name, id, email) {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    
+class MakeEmployee {
+    constructor(name, id, email) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+    }
+
     getName() {
 
     }
@@ -20,4 +22,4 @@ class MakeEmployee(name, id, email) {
     }
 }
 
-
+module.exports = MakeEmployee;
