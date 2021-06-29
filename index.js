@@ -1,9 +1,11 @@
 // packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path')
+const htmlGenerator = require('./src/htmlGenerator')
+const employeesArray = require('./employees.json')
 
-// prompts using Inquirer
-
+// promt user for employee information
 const getInput = () => {
     return inquirer.prompt(
         [
@@ -34,6 +36,16 @@ const getInput = () => {
             },
             {
                 type: 'input',
+                message: 'Enter office number.',
+                name: 'office',
+                when: (answers) => {
+                    if (answers.position === 'manager') {
+                        return true;
+                    }
+                }
+            },
+            {
+                type: 'input',
                 message: 'Enter github username.',
                 name: 'username',
                 when: (answers) => {
@@ -54,8 +66,20 @@ const getInput = () => {
             },
         ]
     )
+
+    // push responses to json file to be used to generate html
     .then(answers => {
-        console.log(answers);
+        employeesArray.push(answers);
+        fs.writeFile('employees.json', JSON.stringify(employeesArray), function(err){
+            if(err) console.log(err)
+            console.log('Wrote to employees.json');
+        });
+        
+        fs.writeFile(path.join(__dirname, 'dist/index.html'), htmlGenerator(employeesArray), function(err) {
+            if(err) console.log(err)
+            console.log('Successfully wrote our HTML to the dist folder!!!!');
+        });
+  
     })
 }
 
