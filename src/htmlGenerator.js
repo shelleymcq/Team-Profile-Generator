@@ -28,31 +28,28 @@ const htmlGenerator = (employeesArray) => {
         bodyHTML += `
             <div class="card">
                 <h5>${el.name}<h5>
-                <p>                
-                    <span class="icon">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    </span>${el.position}</p>
+                <p>&#128203 ${el.position}</p>
                 <p>ID: ${el.id}</p>
-                <p>Email: ${el.email}</p>
+                <p>Email: <a href="mailto:${el.email}">${el.email}</a></p>
                 <p>Office: ${el.office}</p>
             </div>`
       } else if (el.position === 'Engineer') {
         bodyHTML += `
             <div class="card">
                 <h5>${el.name}<h5>
-                <p>${el.position}</p>
+                <p>&#128187 ${el.position}</p>
                 <p>ID: ${el.id}</p>
-                <p>Email: ${el.email}</p>
-                <p>Github: ${el.github}</p>
+                <p>Email: <a href="mailto:${el.email}">${el.email}</a></p>
+                <p>Github: <a href="https://github.com/${el.username}" target="_blank">${el.username}</a></p>
 
             </div>`
       } else if (el.position === 'Intern') {
         bodyHTML += `
             <div class="card">
                 <h5>${el.name}<h5>
-                <p>${el.position}</p>
+                <p>&#127979 ${el.position}</p>
                 <p>ID: ${el.id}</p>
-                <p>Email: ${el.email}</p>
+                <p>Email: <a href="mailto:${el.email}">${el.email}</a></p>
                 <p>School: ${el.school}</p>
 
             </div>`

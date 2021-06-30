@@ -1,3 +1,4 @@
+
 // packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -22,7 +23,7 @@ const getInput = () => {
             },
             {
                 type: 'input',
-                message: 'Enter first name.',
+                message: 'Enter employee name.',
                 name: 'name',
             },
             {
