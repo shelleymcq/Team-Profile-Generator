@@ -13,8 +13,7 @@ This app allows a user to create an html page containing information about a gro
 Download this package and run node install.
 ## Usage
 Follow this link to watch a video demonstration of the app: https://youtu.be/o-iPcZrYW1A
-## Contributors
-me
+![teambuilder screenshot](teambuilder.png)
 ## Testing
 none at this time
 ## Questions 
