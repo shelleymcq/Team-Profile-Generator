@@ -10,9 +10,12 @@ This app allows a user to create an html page containing information about a gro
 * [Testing](#Testing)
 * [Questions](#Questions)
 ## Installation
-Download this package and run node install.
+Download this package and run node install for the dependencies.
 ## Usage
+Use node index.js from the command line to initiate app.
+
 Follow this link to watch a video demonstration of the app: https://youtu.be/o-iPcZrYW1A
+
 ![teambuilder screenshot](teambuilder.png)
 ## Testing
 none at this time
