@@ -1,3 +1,29 @@
 body {
     background-color: rgb(179, 204, 250);
 }
+
+header {
+    background-color: rgb(16, 27, 48);
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    padding: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.card {
+    background-color: cornflowerblue;
+    box-shadow: 0 4px 8px 0;
+    padding: 4px 16px;
+    width: 25%;
+    min-width: 200px;
+    margin: 1rem;
+}
+

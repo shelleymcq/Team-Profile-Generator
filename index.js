@@ -5,28 +5,29 @@ const path = require('path')
 const htmlGenerator = require('./src/htmlGenerator')
 const employeesArray = require('./employees.json')
 
+
 // promt user for employee information
 const getInput = () => {
     return inquirer.prompt(
         [
+            {
+                type: 'list',
+                message: 'Choose position.',
+                name: 'position',
+                choices: [
+                    'Manager',
+                    'Engineer',
+                    'Intern',
+                ]
+            },
             {
                 type: 'input',
                 message: 'Enter first name.',
                 name: 'name',
             },
             {
-                type: 'list',
-                message: 'Choose position.',
-                name: 'position',
-                choices: [
-                    'manager',
-                    'engineer',
-                    'intern',
-                ]
-            },
-            {
                 type: 'input',
-                message: 'Enter ID number.',
+                message: 'Enter employee ID.',
                 name: 'id',
             },
             {
@@ -39,7 +40,7 @@ const getInput = () => {
                 message: 'Enter office number.',
                 name: 'office',
                 when: (answers) => {
-                    if (answers.position === 'manager') {
+                    if (answers.position === 'Manager') {
                         return true;
                     }
                 }
@@ -49,7 +50,7 @@ const getInput = () => {
                 message: 'Enter github username.',
                 name: 'username',
                 when: (answers) => {
-                    if (answers.position === 'engineer' || answers.position === 'manager') {
+                    if (answers.position === 'Engineer') {
                         return true;
                     }
                 }
@@ -59,7 +60,7 @@ const getInput = () => {
                 message: 'Enter school.',
                 name: 'school',
                 when: (answers) => {
-                    if (answers.position === 'intern') {
+                    if (answers.position === 'Intern') {
                         return true;
                     }
                 }
@@ -72,7 +73,7 @@ const getInput = () => {
         employeesArray.push(answers);
         fs.writeFile('employees.json', JSON.stringify(employeesArray), function(err){
             if(err) console.log(err)
-            console.log('Wrote to employees.json');
+            console.log('Run node index.js again to add another employee.');
         });
         
         fs.writeFile(path.join(__dirname, 'dist/index.html'), htmlGenerator(employeesArray), function(err) {
